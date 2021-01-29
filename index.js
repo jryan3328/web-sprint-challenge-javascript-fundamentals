@@ -28,10 +28,11 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation() {
-  
-
+function summation(number) {
+  while(number >= 0){
+    return number + number * (number -1) / 2;
   }
+}
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -56,9 +57,13 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(){
-
-  }
+ function animalNames(name){
+  let displayNames = [];
+  name.forEach(function(animal){
+    displayNames.push(`name: ${animal.animal_name}, scientific: ${animal.scientific_name}`);
+  })
+  return displayNames;
+}
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -66,9 +71,12 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(item){
-
-  }
+ function lowerCaseNames(zooAnimals){
+  return zooAnimals.map(function(x){
+    return x.animal_name.toLowerCase();
+  });
+  
+}
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -76,9 +84,9 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+ function lowPopulationAnimals(zooAnimals){
+  return zooAnimals.filter(e => e.population < 5);
+}
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -87,9 +95,12 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+ function USApop(zooAnimals){
+  let reducer = function(accumulator, animal) {
+    return accumulator + animal.population;
   }
+  return zooAnimals.reduce(reducer, 0);
+}
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -100,9 +111,10 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(){
-
+  function consume(a, b, cb){
+    return cb(a,b)
   }
+ 
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
@@ -175,7 +187,7 @@ CuboidMaker.prototype.surfaceArea = function(){
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-
+const cuboid = new CuboidMaker(4, 5, 5);
 
 
 
@@ -193,8 +205,19 @@ CuboidMaker.prototype.surfaceArea = function(){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(attr) {
+    this.length = attr.length;
+    this.width = attr.width;
+    this.height = attr.height;
+  }
+  volume() {
+    return this.length * this.width * this.height;
+  }
+  surfaceArea() {
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+  }
 }
+
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄

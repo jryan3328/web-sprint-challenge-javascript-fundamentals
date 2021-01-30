@@ -28,12 +28,19 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
 
 2. Explain the difference between a callback and a higher order function.
-
+Callback is a function that can be called upon from a higher order function.
 3. What is closure?
 
+a closure is when a function has to grab variables from an outside function.
+
 4. Describe the four rules of the 'this' keyword.
+explicit binding
+implicit binding 
+new binding
+window binding
 
 5. Why do we need super() in an extended class?
+super replaces prototype
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 

@@ -96,8 +96,8 @@ const zooAnimals = [
   */
 
  function USApop(zooAnimals){
-  let reducer = function(accumulator, animal) {
-    return accumulator + animal.population;
+  let reducer = function(acc, animal) {
+    return acc + animal.population;
   }
   return zooAnimals.reduce(reducer, 0);
 }
@@ -112,7 +112,7 @@ const zooAnimals = [
   */
 
   function consume(a, b, cb){
-    return cb(a,b)
+    return cb(a,b);
   }
  
  
